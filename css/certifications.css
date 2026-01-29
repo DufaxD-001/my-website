@@ -1,0 +1,182 @@
+                              body {
+                               /* Removes the browser's default 8px margin */
+                                   margin: 0; padding: 0;width:100%;}
+
+                              html {box-sizing: border-box;}
+
+                              *, *::before, *::after {
+                            /* Ensures width: 100% includes padding, which is key for alignment */box-sizing: border-box;}
+                        
+                      /* Reset list styles */
+           ul {list-style: none;margin: 0;padding: 0;}
+
+                          /* Header bar */
+                                      .header_main .main_nav{background-color: #003366;padding:0;border:25px;}
+ 
+                 /* flex container for logo and nav (desktop/mobile base)*/
+                  .nav_wrapper {display: flex;/*Align children horizontally */
+                  justify-content: space-between;
+                  gap:5px;/* sets the exact space between the logo and the content */
+                  align-items: center;background-color: #003366;padding:15px 20px;font-family: Arial, sans-serif;
+                  position:relative;}/*needed for positioning on mobile */
+ 
+            /*logo container */
+                            .logo {flex-shrink:0;}
+
+                           /* logo image */
+                                          .logo img{height:40px;display:block;}
+
+                         /*  Nav + Social Icons */
+                         /*  Desktop:this is a flex container,aligning nav and social side by side */
+                                   .right-group {display: flex; align-items: center;gap:200px;/* Space between the primary nav and the social icons */}
+                                    
+                        /* Social Icons Styling */
+                            .social-icon { display: flex;gap: 15px;}
+                            .social-icon a {color: red;font-size: 18px;transition: color 0.3s;}
+                            .social-icon a:hover {color: #5d9ee0; /* Brighter blue on hover */}
+
+
+                        /* Menu Toggle Button - HIDDEN BY DEFAULT (Desktop) */
+                         #menu-toggle {display: none;background: none;border: none;color: white;font-size: 24px;cursor: pointer;
+                                      margin-left: auto;} /* Pushes the menu icon to the far right on mobile */
+
+                       /* Navigation list on the right FIXED */
+                                   .primary-nav  {display: flex;gap:20px;transition:transform 0.3s ease-in-out;width:100%;}
+
+                  /* Optional: remove inline-block if you had it before */
+                         .primary-nav > li {position: relative;}
+                        
+                         .primary_nav_link{color: white;text-decoration: none;padding: 8px 12px; display:block;transition: back-ground 0.3s;}
+
+                         .primary_nav_link:hover {background-color: #0055aa;border-radius: 5px;}
+
+          /* Secondary nav (dropdown) */
+  .secondary-nav {display: none;position: absolute;top: 100%;left: 0;background-color: #f9f9f9;min-width: 250px;box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000;}
+
+  .dropdown:hover .secondary-nav {display: block;}
+
+           /* Sub-links inside dropdown */
+                     .secondary-nav li {padding: 10px;border-bottom: 1px solid #ddd;}
+                     .secondary-nav li a {color: #003366;text-decoration: none;display: block;}
+                     .secondary-nav li a:hover {background-color: #eee;}
+
+          /* Extra content inside dropdown */
+                     .nav-content {padding: 10px;font-size: 14px;color: #333;}
+                     .nav-content h4 {margin-top: 10px;margin-bottom: 5px;color: #0055aa;}
+
+
+        /* ================================================= */
+        /* START MOBILE RESPONSIVENESS (MAX WIDTH 768px)     */
+        /* ================================================= */
+        
+
+
+
+                  @media (max-width: 768px) {
+            
+            .nav_wrapper {/* On mobile, we want the logo on the left, and the button on the right */justify-content: flex-start;position:relative;height:auto; 
+                           display:flex;gap:10px;width:100%;flex-direction: row;align-items: center;flex-wrap: wrap;padding: 15px 20px;}
+
+
+
+                          /* 2. LOGO POSITIONING: Left, pushing other items away */
+    .logo-group {
+        flex-grow: 1; /* Allows the logo container to take up space */
+        margin-right: auto; /* Pushes the next item (#menu-toggle) to the far right */
+        /* Ensure the logo image itself doesn't shrink or grow unexpectedly */
+    } 
+
+
+           /* 1. SHOW THE HAMBURGER ICON */
+                          #menu-toggle {display: block;flex-shrink: 0;}
+
+            
+                     /* 2. HIDE THE ENTIRE MENU/SOCIAL CONTAINER BY DEFAULT */
+                     /*Target the container with id="mobile-menu" which is the .right-group div */
+                         #mobile-menu { width: 100%;background-color: #003366;z-index: 1005;
+                    /* Transition for smooth slide-down effect */
+                                        max-height: 0px;overflow: hidden;transition: max-height 0.3s ease-in-out;position:static;}
+                    /* 3. MOBILE MENU: STACK VERTICALLY */
+            .primary-nav {flex-direction: column; /* Stack links vertically */gap: 0;}
+
+            /* SHOW SOCIAL ICONS INSIDE THE MOBILE MENU*/
+            .right-group {display: flex;flex-direction: column;gap: 10px;padding: 10px 20px;border-top: 1px solid #0055aa;}
+            .social-icons {justify-content: center;margin: 10px 0;}
+            .social-icons a {font-size: 24px;}
+
+            /* 4. SHOW MENU WHEN 'is-open' CLASS IS PRESENT */
+            #mobile-menu.is-open {max-height: 500px; /* Large enough value to show all content */}
+            
+            /* Make secondary nav display inline and full-width */
+            .secondary-nav {display: block; position: static; /* Position normally within the flow */ width: 100%; min-width: auto;background-color:#f9f9f9;
+                 /* Different background to stand out */box-shadow: none;border-radius: 0;margin-top: 0;padding-left: 0;list-style: none;}
+            
+              .secondary-nav li {padding: 0;border-bottom: 1px solid #ddd;}
+
+            .secondary-nav li a {color: #003366;}
+
+            .secondary-nav li a:hover {background-color: #eee; /* Light hover background for white background */}
+
+            .nav-content {padding: 10px; background-color: transparent;color:#333;}
+            
+            .nav-content h4 {color: #0055aa; margin-top: 10px;margin-bottom: 5px;}}
+
+
+
+        /* ================================================= */
+        /* END MOBILE RESPONSIVENESS                         */
+        /* ================================================= */ 
+
+
+
+
+
+
+                        html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}   
+
+
+
+
+                
+        .container{margin:0px;padding:0px;position:relative;}
+        .container img{width: 100%;height:100%; display: block;object-fit:cover;}
+        
+       
+       
+       
+        .site-footer {background-color: #003366;color: white;padding: 20px 15px;font-family: Arial, sans-serif;margin-top:60px}
+
+        .footer-content {display: flex;/* keep the column in a row */flex-wrap: wrap;justify-content:space-around;align-items: flex-start;/* space above the copyrights line */
+                         gap:20px;padding-bottom:20px;} 
+                
+        .footer-col-1{flex:1 1 300px;min-width:250px;margin-top:45px;}
+        .footer-links.footer-col-2{flex:1 1 200px;min-width:180px;margin-top:5px;}
+        .footer-info.footer-col-3 {flex:1 1 300px;min-width:250px;}
+        .footer-info-details {margin-bottom:15px;}
+          
+        .footer-logo img {width: 100px;height: 50px; border: none;margin-top:40px;margin-bottom:80px;}
+  
+        .footer-links ul {list-style: none;padding: 0px;font-size:18px;color:whitesmoke;}
+
+        .footer-links a {color: whitesmoke;text-decoration: none;display:block;padding:15px 0px;}
+        .footer-links li{position:relative;padding-left:15px;}
+        .footer-links li::before {content:"\2022";color:red;font-weight:bold;display:inline-block;position:absolute;left:0;margin-right:5px;font-size:1.5em;transform:translateY(-50%);top:50%;}
+
+        .footer-links a:hover {text-decoration: underline;color:green;}
+
+        .footer-info ul{list-style:none; padding:0px;}
+
+        .footer-info li{display:flex;align-items:flex-start;margin-bottom:5px;}
+    
+        .footer-info i{ margin-right:10px; margin-top:5px;color:red;}
+
+        .footer-info a[href^="mailto:"]{color:whitesmoke;} 
+
+        .footer-copyright{text-align:center;  /* center the text */margin-top: 5px;margin-bottom:0px;font-size: 14px;border-top: 1px solid rgba(255,255,255,0.3);
+                          padding-top: 10px;width: 100%;}
