@@ -1,0 +1,4 @@
+.vscode/
+pages.zip
+node_modules/
+*.log
